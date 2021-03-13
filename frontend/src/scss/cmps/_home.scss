@@ -4,7 +4,19 @@
     justify-content: space-between;
     background: #ffffff;
     background: linear-gradient(169deg, #ffffff 41%, $primary-clr 61%);
-    height: 91vh;
+    .app-title {
+        padding-top: 40px;
+        color: #333333;
+    }
+    nav {
+        text-align: center;
+        p {
+            color: #333333;
+        }
+        p:hover {
+            color: $primary-clr2;
+        }
+    }
     h1 {
         font-family: $font-primary;
         font-size: 5rem;
@@ -20,7 +32,6 @@
             font-size: 1.3rem;
             margin-bottom: -20px;
         }
-        
     }
     button {
         @include reset-btn;

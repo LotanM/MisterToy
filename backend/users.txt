@@ -1,0 +1,6 @@
+db.users.insert(
+{fullname: 'Alison Bergers', nickname:'AlisonB', password:'ab100', isAdmin: false},
+{fullname: 'Ladis Washaroom', nickname:'LadisW', password:'lw100', isAdmin: false},
+{fullname: 'Emplois Maswashhans', nickname:'EmploisM', password:'em100', isAdmin: false},
+{fullname: 'Max ImumOcupanziu120', nickname:'MaxI', password:'mi100', isAdmin: true})
+

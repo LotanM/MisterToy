@@ -1,10 +1,10 @@
 <template>
-  <div class="header-container">
-    <nav>
-      <p>misterToyLogo</p>
-      <router-link to="/"><p>Sign Up / Login</p></router-link>
+  <nav class="header-container">
+      <div class="logo-container">
+        <router-link to="/"><img src="../assets/img/logo.svg" alt=""></router-link>
+      </div>
+      <p>Sign Up / Login</p>
     </nav>
-  </div>
 </template>
 
 <script>
