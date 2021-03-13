@@ -1,0 +1,52 @@
+.home {
+    @include flex-col;
+    @include flex-center;
+    justify-content: space-between;
+    background: #ffffff;
+    background: linear-gradient(169deg, #ffffff 41%, $primary-clr 61%);
+    height: 91vh;
+    h1 {
+        font-family: $font-primary;
+        font-size: 5rem;
+        @include for-mobile-layout {
+            font-size: 3.5rem;
+        }
+    }
+    h2 {
+        margin-bottom: -25px;
+        font-size: 1.5em;
+        text-transform: uppercase;
+        @include for-mobile-layout {
+            font-size: 1.3rem;
+            margin-bottom: -20px;
+        }
+        
+    }
+    button {
+        @include reset-btn;
+        @include pill-btn;
+        background-color: $primary-clr2;
+        transition: 0.4s;
+        border: 3px solid white;
+        color: white;
+        font-size: 15px;
+        font-family: Montserrat;
+    }
+    button:hover {
+        background-color: white;
+        border: 3px solid $primary-clr2;
+        color: $primary-clr2;
+    }
+    .logo-img {
+        max-width: 25rem;
+        margin: 0;
+    }
+    .btns-container {
+        width: 260px;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+// for-narrow-layout
+// for-normal-layout
+// for-wide-layout

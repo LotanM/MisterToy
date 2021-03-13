@@ -1,0 +1,48 @@
+.toy-preview {
+    @include flex-col;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 7px;
+    margin: 0 15px 15px 15px;
+    padding: 12px 0 0;
+    width: 190px;
+    .img-container {
+        width: 160px;
+        height: 160px;
+        margin: 0 auto;
+        margin-bottom: 15px
+    }
+    .details-container {
+        @include flex-col;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        border-radius: 22px;
+        border-top: 1px solid $primary-clr2;
+        text-transform: capitalize;
+        .toy-title {
+            font-weight: bold;
+            color: $clr2;
+            margin: 16px 0;
+        }
+        .toy-price {
+            font-size: 20px;
+        }
+    }
+    .btns-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        margin: 4px 0;
+    }
+    button {
+        border: none;
+        color: $clr2;
+        font-size: 20px;
+        width: 40px;
+    }
+    button:hover {
+        color: $primary-clr;
+        border-radius: 20px;
+    }
+}

@@ -1,0 +1,95 @@
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin reset-btn {
+  outline: none;
+}
+
+@mixin pill-btn {
+  border-radius: 50px;
+  height: 50px;
+  width: 125px;
+}
+
+// flex
+
+@mixin flex-col {
+  display: flex;
+  flex-direction: column;
+}
+@mixin flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+// for ::before and ::after
+@mixin psudo($position: absolute, $content: "") {
+  position: $position;
+  content: $content;
+}
+
+/* Media queries Breakpoint mixins */
+// $break-narrow: 460px;
+// $break-normal: 740px;
+// $break-wide: 960px;
+
+@mixin for-mobile-layout {
+  @media (max-width: $break-narrow) { //460
+    @content;
+  }
+}
+
+@mixin for-narrow-layout {
+  @media (min-width: $break-narrow) { //460
+    @content;
+  }
+}
+
+@mixin for-normal-layout { //740
+  @media (max-width: $break-normal) {
+    @content;
+  }
+}
+
+@mixin for-wide-layout { //960
+  @media (min-width: $break-wide) {
+    @content;
+  }
+}
+
+/* Media  Mixins */
+
+//aspect ratio mixin
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  overflow: hidden;
+  &:before {
+    content: "";
+    display: block;
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  > img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+// Mixin for removing hover efects on iphone screen
+@mixin hover-supported {
+  @media not all and (pointer: coarse) {
+    &:hover {
+      @content;
+    }
+  }
+}

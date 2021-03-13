@@ -1,0 +1,19 @@
+// SETUP
+@import 'setup/typography';
+@import 'setup/variables';
+@import 'setup/mixins';
+@import 'setup/functions';
+
+// BASICS
+@import 'basics/helpers';
+@import 'basics/base';
+@import 'basics/layout';
+
+// COMPONENTS
+@import 'cmps/home';
+@import 'cmps/misterToy-app';
+@import 'cmps/app-header';
+@import 'cmps/toy-preview';
+@import 'cmps/toy-list';
+@import 'cmps/toy-filter';
+@import 'cmps/toy-details';

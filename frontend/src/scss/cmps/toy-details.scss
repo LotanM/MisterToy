@@ -1,0 +1,48 @@
+.toy-details {
+    @include flex-col;
+    flex-wrap: wrap;
+    max-width: 800px;
+    padding: 20px;
+    justify-content: space-around;
+    background-color: #fefefe;
+    margin: auto;
+    border: 1px solid #888;
+    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
+    .header {
+        display: flex;
+        justify-content: space-between;
+        .back-btn {
+            background-color: $primary-clr2;
+            color: white;
+            display: inline;
+            font-size: 30px;
+            width: 40px;
+            border: none;
+        }
+        .back-btn:hover {
+            background-color: white;
+            color: $primary-clr2;
+            border: 1px solid $primary-clr2;
+        }
+    }
+    .body {
+        display: flex;
+        justify-content: center;
+        .img-container {
+            width: 30rem;
+            height: 30rem;
+        }
+        .details {
+            width: 15rem;
+            background-color: rgb(233, 231, 231);
+        }
+    }
+    h1 {
+        font-size: 30px;
+        text-transform: capitalize;
+    }
+    img {
+        margin-bottom: 1rem;
+        border-radius: 5px;
+    }
+}
