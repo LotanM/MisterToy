@@ -59,7 +59,6 @@ export const toyStore = {
     },
     saveToy({ commit }, { toy }) {
       const type = (toy._id) ? 'updateToy' : 'addToy'
-      console.log(type);
       toyService.save(toy)
         .then((savedToy) => {
           commit({ type, toy: savedToy })

@@ -1,4 +1,3 @@
-import { utilService } from './util.service.js'
 import { httpService } from './http.service.js'
 
 // const KEY = 'usersDB';
@@ -27,14 +26,15 @@ function remove(id) {
 }
 
 function save(user) {
-    const savedUser = (user._id) ? httpService.put(userUrl + user._id, user) : httpService.post(KEY, user)
+    const savedUser = (user._id) ? httpService.put(userUrl + user._id, user) : httpService.post(userUrl, user)
     return savedUser;
 }
 
-function getEmptyUser(name = '', price = 100) {
+function getEmptyUser() {
     return {
-        name,
-        price,
-        tags: []
+        username,
+        nickname,
+        password,
+        isAdmin
     }
 }

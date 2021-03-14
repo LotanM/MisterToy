@@ -32,11 +32,10 @@ export default {
   },
   methods: {
     signup() {
-      this.$store
-        .dispatch({ type: "saveUser", user: this.loggedinUser })
-        .then(() => {
-          this.$router.push('/misterToy-app')
-        });
+      this.$store.dispatch({ type: "saveUser", user: this.loggedinUser });
+      // userService.addUser({ ...this.signupCredentials }).then((user) => {
+      //   this.loggedinUser = user;
+      // });
     },
     goBack() {
       this.$router.go(-1);

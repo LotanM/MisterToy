@@ -4,13 +4,13 @@ import { userService } from '../services/user.service.js';
 export const userStore = {
   state: {
     users: [],
-    user: null,
+    currUser: null,
     cartUsers: []
   },
   getters: {
     usersForDisplay(state) { return state.users },
     userForDisplay(state) {
-      return state.user }
+      return state.currUser }
   },
   // Mutations should be SYNC and PURE functions (a pure function does not cause any side effects)
   //to mutate a state: inside some component: this.$store.commit({ type: 'mutationName', {payload.?} })
@@ -24,6 +24,8 @@ export const userStore = {
       state.users.splice(idx, 1)
     },
     addUser(state, { user }) {
+      state.currUser = user.nickname;
+      console.log('state.currUser:', state.currUser)
       state.users.push(user);
     },
     updateUser(state, { user }) {
@@ -33,7 +35,7 @@ export const userStore = {
     ,
     getUserById(state, { userId }) {
       const userObj = state.users.find(user => user._id === userId)
-      state.user = userObj
+      state.currUser = userObj
     }
   },
   actions: { //async operations. speaking with backend
