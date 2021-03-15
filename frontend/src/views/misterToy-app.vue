@@ -34,7 +34,6 @@ export default {
   },
   created() {
     this.$store.dispatch({ type: "loadToys" });
-    console.log('this.$store.getters.currUser:', this.$store.getters.currUser)
   },
   components: {
     toyList,

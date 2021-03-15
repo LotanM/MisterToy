@@ -5,9 +5,25 @@
     background-color: $primary-clr2;
     height: 50px;
     padding: 0 20px;
+    .username-container {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+        width: 85px;
+        font-size: 15px;
+        font-weight: bold;
+        i {
+            font-size: 18px;
+        }
+        i:hover {
+            color: white;
+        }
+    }
     .logo-container {
         display: flex;
-        width: 100px;
+        width: 80px;
     }
     p {
         color: white;

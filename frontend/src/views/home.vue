@@ -7,8 +7,8 @@
     <nav>
       <div class="btns-container">
         <div class="login-container">
-        <router-link to="/">
-          <button>log In</button>
+        <router-link to="/login">
+          <button>Login</button>
         </router-link>
         </div>
         <router-link to="/misterToy-app">

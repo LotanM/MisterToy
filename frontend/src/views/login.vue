@@ -1,64 +1,58 @@
 <template>
-  <div class="sign-up">
-    <form @submit.prevent="signup">
-      <h2>Signup</h2>
-      <input
-        type="text"
-        placeholder="Fullname"
-        v-model="loggedinUser.fullname"
-      />
-      <input
-        type="text"
-        placeholder="Nickname"
-        v-model="loggedinUser.nickname"
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        v-model="loggedinUser.password"
-      />
-      <button>Sign Up</button>
+  <div class="login">
+    <form @submit.prevent="login">
+      <div class="form-header-container">
+        <h2>Sign In</h2>
+        <div class="img-container">
+          <img src="../assets/img/Deku.png" alt="" />
+        </div>
+      </div>
+      <div class="form-main-container">
+        <input
+          type="text"
+          placeholder="Username"
+          v-model="loggedinUser.username"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          v-model="loggedinUser.password"
+        />
+        <button class="login-btn">Login</button>
+        <div class="form-footer-container">
+          <div class="checkbox-container">
+            <input type="checkbox" class="remember-btn" name="remember" />
+            <label for="remember">remember me</label>
+          </div>
+          <button class="forgot-btn">Forgot Password?</button>
+        </div>
+        <hr>
+        <p>Not a member yet? <router-link to="/sign-up">Join now </router-link></p>
+      </div>
     </form>
-    <button @click="goBack()">Go back</button>
+    <button @click="goBack()">Home</button>
   </div>
 </template>
 <script>
 export default {
-  name: "sign-up",
+  name: "log-in",
   data() {
     return {
-      loggedinUser: { fullname: "", nickname: "", password: "" },
+      loggedinUser: { username: "", password: "" },
     };
   },
   methods: {
-    signup() {
-      this.$store.dispatch({ type: "saveUser", user: this.loggedinUser });
-      // userService.addUser({ ...this.signupCredentials }).then((user) => {
-      //   this.loggedinUser = user;
-      // });
+    login() {
+      this.$store
+        .dispatch({ type: "logUser", user: this.loggedinUser })
+        .then(() => {
+          this.$router.push("/misterToy-app");
+        });
     },
     goBack() {
-      this.$router.go(-1);
+      this.$router.push("/");
     },
   },
-  created() {
-    // this.loggedinUser = userService.getLoggedinUser();
-    // if (this.loggedinUser) this.$router.push("/bug-app");
-  },
+  created() {},
 };
 </script>
-
-<style scoped>
-.sign-up form {
-  display: flex;
-  flex-direction: column;
-  max-width: 300px;
-  margin: 0 auto;
-}
-.sign-up form input {
-  margin-bottom: 10px;
-  padding-left: 10px;
-  height: 25px;
-  font-size: 20px;
-}
-</style>

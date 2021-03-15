@@ -5,13 +5,14 @@ import misterToyApp from '../views/misterToy-app.vue'
 import toyEdit from '../views/toy-edit.vue'
 import toyDetails from '../views/toy-details.vue'
 import signUp from '../views/sign-up.vue'
+import login  from '../views/login.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     component: home
   },
   {
@@ -30,6 +31,10 @@ const routes = [
   {
     path: '/sign-up',
     component: signUp
+  },
+  {
+    path: '/login',
+    component: login
   }
 ]
 

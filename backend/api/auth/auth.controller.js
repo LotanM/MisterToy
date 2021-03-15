@@ -5,6 +5,7 @@ async function login(req, res) {
     const { username, password } = req.body
     try {
         const user = await authService.login(username, password)
+        console.log('auth.cotroller',user);
         req.session.user = user
         res.json(user)
     } catch (err) {
@@ -15,10 +16,11 @@ async function login(req, res) {
 
 async function signup(req, res) {
     try {
-        const { username, password, fullname } = req.body
+        console.log(req.body);
+        const { fullname, username ,password } = req.body
         // Never log passwords
         // logger.debug(fullname + ', ' + username + ', ' + password)
-        const account = await authService.signup(username, password, fullname)
+        const account = await authService.signup(fullname, username ,password)
         logger.debug(`auth.route - new account created: ` + JSON.stringify(account))
         const user = await authService.login(username, password)
         req.session.user = user
@@ -31,6 +33,7 @@ async function signup(req, res) {
 
 async function logout(req, res){
     try {
+        console.log('req: in auth controller', req)
         req.session.destroy()
         res.send({ msg: 'Logged out successfully' })
     } catch (err) {

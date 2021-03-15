@@ -5,12 +5,10 @@ export const toyStore = {
   state: {
     toys: [],
     toy: null,
-    cartToys: []
   },
   getters: {
     toysForDisplay(state) { return state.toys },
-    toyForDisplay(state) {
-      return state.toy }
+    toyForDisplay(state) { return state.toy }
   },
   // Mutations should be SYNC and PURE functions (a pure function does not cause any side effects)
   //to mutate a state: inside some component: this.$store.commit({ type: 'mutationName', {payload.?} })
@@ -37,6 +35,7 @@ export const toyStore = {
     }
   },
   actions: { //async operations. speaking with backend
+    //change to async await
     loadToys({ commit, state }) {
       return toyService.query()
         .then((toys) => {

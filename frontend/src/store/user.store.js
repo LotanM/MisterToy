@@ -5,12 +5,12 @@ export const userStore = {
   state: {
     users: [],
     currUser: null,
-    cartUsers: []
   },
   getters: {
     usersForDisplay(state) { return state.users },
-    userForDisplay(state) {
-      return state.currUser }
+    currUser(state) {
+      return state.currUser
+    }
   },
   // Mutations should be SYNC and PURE functions (a pure function does not cause any side effects)
   //to mutate a state: inside some component: this.$store.commit({ type: 'mutationName', {payload.?} })
@@ -24,9 +24,14 @@ export const userStore = {
       state.users.splice(idx, 1)
     },
     addUser(state, { user }) {
-      state.currUser = user.nickname;
-      console.log('state.currUser:', state.currUser)
+      state.currUser = user;
       state.users.push(user);
+    },
+    setCurrUser(state, { user }) {
+      state.currUser = user
+    },
+    cleanCurrUser(state, { user }) {
+      state.currUser = null
     },
     updateUser(state, { user }) {
       const idx = state.users.findIndex(p => p._id === user._id)
@@ -61,20 +66,37 @@ export const userStore = {
     },
     saveUser({ commit }, { user }) {
       const type = (user._id) ? 'updateUser' : 'addUser'
-      console.log(type);
       userService.save(user)
         .then((savedUser) => {
           commit({ type, user: savedUser })
         })
         .catch((err) => {
           console.log('err', err);
-
+        })
+    },
+    logUser({ commit }, { user }) {
+      userService.login(user)
+        .then((loggedinUser) => {
+          commit({ type: 'setCurrUser', user: loggedinUser })
+        })
+        .catch((err) => {
+          console.log('err', err);
+        })
+    },
+    logout({ commit }, { user }) {
+      userService.logout(user)
+        .then(() => {
+          commit({ type: 'cleanCurrUser' })
+        })
+        .catch(err => {
+          console.log('Store: Cannot remove userLoggedIn', err);
         })
     },
     getUserById({ commit }, { userId }) {
       return userService.getById(userId)
-        .then((user) => {
+        .then(() => {
           commit({ type: 'getUserById', userId })
+          console.log(state.currUser)
         })
         .catch(err => {
           console.log('Store: Cannot get user', err);
