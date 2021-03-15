@@ -5,9 +5,18 @@ const config = require('../config')
 module.exports = {
     getCollection
 }
-
-// Database Name
+const uri = "mongodb+srv://LotanYeah:123@cluster0.tuebb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+// Database Nam
 const dbName = 'toys_db'
+
+const client = new MongoClient(uri, { useNewUrlParser: true })
+client.connect(err => {
+    console.log('connected to mongoo');
+    const collection = client.db('TOY_DB').collection('toy')
+    collection.find().toArray()
+        .then(res => console.log(res))
+    client.close()
+})
 
 var dbConn = null
 

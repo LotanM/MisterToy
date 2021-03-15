@@ -16,6 +16,8 @@ const session = expressSession({
 app.use(express.json())
 app.use(session)
 
+
+/* process.env - object that holds all the server settings. (created when node.js runs) */
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.resolve(__dirname, 'public')))
 } else {
@@ -30,7 +32,7 @@ const authRoutes = require('./api/auth/auth.routes')
 const userRoutes = require('./api/user/user.routes')
 const reviewRoutes = require('./api/review/review.routes')
 const toyRoutes = require('./api/toy/toy.routes')
-const {connectSockets} = require('./services/socket.service')
+const { connectSockets } = require('./services/socket.service')
 
 // routes
 const setupAsyncLocalStorage = require('./middlewares/setupAls.middleware')
