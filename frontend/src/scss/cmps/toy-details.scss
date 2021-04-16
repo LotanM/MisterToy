@@ -1,5 +1,6 @@
 .toy-details {
     @include flex-col;
+    // align-items: center;
     flex-wrap: wrap;
     max-width: 800px;
     padding: 20px;

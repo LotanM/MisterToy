@@ -16,15 +16,21 @@
         <p>Type: {{ toy.type }}</p>
       </div>
     </div>
+    <div class="chat-container">
+      <chat :toyId="toy.id" />
+    </div>
   </div>
 </template>
 
 <script>
+import chat from "./chat-room.vue";
+
 export default {
   name: "toy-details",
   data() {
     return {
       toy: null,
+      toyId: this.$route.params.toyId,
     };
   },
   methods: {
@@ -37,6 +43,9 @@ export default {
   },
   created() {
     this.loadToy();
+  },
+  components: {
+    chat,
   },
 };
 </script>

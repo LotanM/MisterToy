@@ -9,7 +9,8 @@ export const userService = {
     getById,
     remove,
     save,
-    getEmptyUser
+    getEmptyUser,
+    getLoggedinUser
 }
 
 const userUrl = 'user/'
@@ -41,6 +42,10 @@ function login(user){
 
 function logout(username) {
     return httpService.post(authUrl + 'logout', username)
+}
+
+function getLoggedinUser() {
+    return JSON.parse(sessionStorage.getItem('loggedinUser'))
 }
 
 function getEmptyUser() {
